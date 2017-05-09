@@ -1,0 +1,21 @@
+
+.space-img {
+    height: 200px;
+    width: 200px;
+    display: block;
+}
+.hidden-card {
+    display: none;
+}
+.hidden {
+    display: none;
+}
+.visible {
+    display: all;
+}
+#back-arrow {
+    font-size: 2em;
+}
+#forward-arrow {
+    font-size: 2em;
+}
