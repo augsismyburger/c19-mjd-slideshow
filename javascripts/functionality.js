@@ -1,30 +1,83 @@
 "use strict";
 
+//
+let addFunctionality = () => {
 
-let addFunctionality = (data) => {
-        console.log($('.card'));
+        // CAROUSEL
+        $('.card').first().fadeIn('slow').delay(4000);
+        function runCarousel() {
+            console.log("shit is happening");
+            let card = $('.card');
+            for (let i = 0; i < card.length; i++) {
+                    // console.log(card[j]);
+                    var j = 1 + i;
+                    console.log(i, j);
+                    if (j == card.length) {
+                        i = 0;
+                        $(card[j - 1]).fadeOut('slow');
+                        // console.log(card[j])
+                        $(card[i]).delay(600).fadeIn('slow');
+                        break;
+                    } else if ($(card[i]).css("display") == "block") {
+                        $(card[i]).fadeOut('slow');
+                        // console.log(card[j])
+                        $(card[j]).delay(600).fadeIn('slow');
+                        break;
+                    }
+                }
+        }
+        setInterval(runCarousel, 4000);
 
+        // CLICK EVENTS
+        $('#forward-arrow').click((e) => {
+            let card = $('.card');
+            for (let i = 0; i < card.length; i++) {
+                // console.log(card[j]);
+                var j = 1 + i;
+                // console.log(i, j);
+                if (j == card.length) {
+                    i = 0;
+                    $(card[j - 1]).fadeOut('slow');
+                    console.log(card[j])
+                    $(card[i]).delay(600).fadeIn('slow');
+                    break;
+                } else if ($(card[i]).css("display") == "block") {
+                    $(card[i]).fadeOut('slow');
+                    console.log(card[j])
+                    $(card[j]).delay(600).fadeIn('slow');
+                    break;
+                }
+            }
+
+        });
+        $('#back-arrow').click((e) => {
+            let card = $('.card');
+            // console.log(card.length - 1)
+            for (let i = 3; i >= 0; i--) {
+                // console.log(card[i]);
+                var j = i - 1;
+                if ($(card[i]).css("display") == "block") {
+                    console.log("fuck yeah", i, j);
+                    $(card[i]).fadeOut('slow');
+                    $(card[j]).delay(600).fadeIn('slow');
+                    break;
+                } else if (j == 0 ) {
+                    console.log(i, j);
+                    $(card[i - 1]).fadeOut('slow');
+                    j = 3;
+                    $(card[j]).delay(600).fadeIn('slow');
+                    break;
+                }
+            }
+
+        });
         // HOVER ABILITY
-        $('.card').mouseover((event) => {
+        $('.space-img').mouseover((event) => {
             $(event.target).next().show();
         });
 
-        $('.card')[0].mouseout((event) => {
+        $('.space-img').mouseout((event) => {
             $(event.target).next().hide();
         });
-
-
-        // CAROUSEL
-        $('#forward-arrow').click((e) => {
-            console.log($('.card'));
-            let counter = 0;
-            $('.card').addClass('hidden-card').next().addClass('visible').removeClass('hidden-card');
-        });
-        $('#back-arrow').click((e) => {
-            $('.card').addClass('hidden-card').prev().addClass('visible').removeClass('hidden-card');
-        });
-}
-// WRITE TO DOM
-let writeToDom = (data) => {
-    $('.my-target').append(`<div class="card"<h3>${data.title}</h3><img class="space-img" src=${data.hdurl} alt=${data.title}><p class="hidden">${data.explanation}</p></div>`);
+        //
 }

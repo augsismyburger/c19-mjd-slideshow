@@ -8,8 +8,11 @@ getPic1().then(
     console.error
 ).then(
     getPic4,
-    console.error
+    console.err
 ).then(
-    addFunctionality,
-    console.error
+    addFunctionality
 );
+
+
+
+

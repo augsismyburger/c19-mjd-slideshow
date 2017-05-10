@@ -1,21 +1,51 @@
 
-.space-img {
-    height: 200px;
-    width: 200px;
-    display: block;
+body {
+    background-color: black;
+    color: white;
 }
-.hidden-card {
-    display: none;
+h1 {
+    text-align: center;
+}
+.my-target {
+    width: 80%;
+    margin: auto;
+
+}
+.card {
+    text-align: center;
+}
+.space-img {
+    position: absolute;
+    top: 100px;
+    left: 250px;
+    width: 600px;
+}
+.visible {
 }
 .hidden {
     display: none;
 }
-.visible {
-    display: all;
+.para {
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    color: white;
+    opacity: .8;
+    width: 500px;
 }
 #back-arrow {
-    font-size: 2em;
+    font-size: 6em;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    top: 200px;
+    left: 145px;
 }
 #forward-arrow {
-    font-size: 2em;
+    font-size: 6em;
+    color: white;
+    position: absolute;
+    z-index: 2;
+    top: 200px;
+    left: 860px;
 }
